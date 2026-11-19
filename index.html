@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorting Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <h1>Sorting Visualizer</h1>
+      <p>See what happens to a list of numbers as different sorting algorithms run.</p>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="display" aria-label="Sorting demonstration">
+      <div class="display-head">
+        <div>
+          <p class="small-heading">CURRENT ALGORITHM</p>
+          <h2 id="algorithmTitle">Bubble Sort</h2>
+        </div>
+        <div class="display-tags">
+          <span id="stability" class="stability">Stable</span>
+          <span id="status" class="status">Ready</span>
+        </div>
+      </div>
+
+      <div id="bars" class="bars" role="img" aria-label="Unsorted bars with different heights"></div>
+
+      <div class="legend">
+        <span><i class="legend-color regular"></i>Unsorted</span>
+        <span><i class="legend-color active"></i>Comparing</span>
+        <span><i class="legend-color sorted"></i>Sorted</span>
+      </div>
+
+      <div class="stats">
+        <div>
+          <strong id="comparisons">0</strong>
+          <span>Comparisons</span>
+        </div>
+        <div>
+          <strong id="swaps">0</strong>
+          <span>Swaps</span>
+        </div>
+        <div>
+          <strong id="steps">0</strong>
+          <span>Steps shown</span>
+        </div>
+      </div>
+      <p class="stats-note">Each step is one frame of the animation, including comparisons and swaps.</p>
+    </section>
+
+    <section class="tools" aria-label="Sorting controls">
+      <div class="tools-heading">
+        <h2>Controls</h2>
+        <p>Choose an algorithm, then start sorting or go through it one step at a time.</p>
+      </div>
+
+      <div class="controls">
+        <div class="control-field">
+          <label for="algorithm">Algorithm</label>
+          <select id="algorithm">
+            <option value="bubble">Bubble Sort</option>
+            <option value="selection">Selection Sort</option>
+            <option value="insertion">Insertion Sort</option>
+            <option value="bozo">Bozo Sort</option>
+          </select>
+        </div>
+
+        <div class="control-field">
+          <label for="size">Number of bars <output id="sizeValue">25</output></label>
+          <input type="range" id="size" min="8" max="45" value="25">
+          <p id="bozoHint" class="bozo-hint" hidden>Bozo Sort uses 3-6 bars because it can take a long time to finish.</p>
+        </div>
+
+        <div class="control-field">
+          <label for="speed">Animation speed <output id="speedValue">5</output></label>
+          <input type="range" id="speed" min="1" max="10" value="5">
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button id="playButton" class="play-button" type="button">Start</button>
+        <button id="stepButton" type="button">Next step</button>
+        <button id="resetButton" type="button">Reset</button>
+        <button id="shuffleButton" type="button">Shuffle</button>
+      </div>
+    </section>
+
+    <section class="explanation">
+      <h2>How it works</h2>
+      <p id="explanationText"></p>
+      <p id="stabilityText" class="stability-text"></p>
+    </section>
+  </main>
+</body>
+</html>
